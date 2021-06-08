@@ -1,11 +1,11 @@
 import React from 'react'
 
-const InputTask = () => {
+const InputTask = ({inputHandler, taskText, setTask}) => {    
     return (
-        <div className="input-component">
-            <input type="text" placeholder="Ваша задача"></input>
+        <form onSubmit={setTask}>
+            <input type="text" placeholder="Ваша задача" value={taskText} onChange={inputHandler} />
             <button>Создать задачу</button>
-        </div>
+        </form>
     )
 };
 export default InputTask;
