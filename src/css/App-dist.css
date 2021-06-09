@@ -1,0 +1,38 @@
+.App {
+  width: 80%;
+  background-color: aqua;
+  margin: 0 auto;
+}
+.App__input {
+  border: solid 1px black;
+  padding: 5px 10px;
+}
+
+.tasks-list {
+  border: solid 1px orange;
+  padding: 10px;
+}
+.tasks-list__element {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+.tasks-list__element p {
+  width: 70%;
+  display: inline-block;
+  padding: 10px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.button {
+  background-color: #524747;
+  color: white;
+  border: 4px solid #524747;
+  transition-duration: 0.5s;
+}
+.button:hover {
+  background-color: white;
+  color: black;
+}

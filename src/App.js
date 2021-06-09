@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import '../src/css/App.css';
 import InputTask from './components/InputTask';
 import TaskList from './components/TaskList';
 
@@ -23,15 +23,15 @@ function App() {
   };
   const toggleDone = (Id) => {
     setTasksList(tasksList.map( item => {
-      if (item.id === Id) {
-        return {
+      if (item.id === Id) {        
+        return {          
           ...item,
           done: !item.done
-        }
+        };        
       } return item     
-    }))
+    }));    
   }
-  console.log(tasksList);
+  
   return (
     <div className="App">
       <section className="App__tasksList">

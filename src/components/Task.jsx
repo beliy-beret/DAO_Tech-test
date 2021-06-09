@@ -6,7 +6,7 @@ const Task = ({text, deleteTask, Id, toggleDone}) => {
             <p onClick={() => toggleDone(Id)}>
                 {text} 
             </p>
-            <button onClick={() => deleteTask(Id)}>Удалить задачу</button>
+            <button className="button" onClick={() => deleteTask(Id)}>Удалить задачу</button>
         </div>
     )
 };
