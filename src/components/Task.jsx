@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Task = ({text}) => {
+const Task = ({text, deleteTask, Id, toggleDone}) => {
     return (
-        <div className="task-component">
-            <p>
+        <div className="tasks-list__element">
+            <p onClick={() => toggleDone(Id)}>
                 {text} 
             </p>
-            <button>Удалить задачу</button>
+            <button onClick={() => deleteTask(Id)}>Удалить задачу</button>
         </div>
     )
 };

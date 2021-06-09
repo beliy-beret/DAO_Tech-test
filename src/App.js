@@ -8,8 +8,8 @@ function App() {
   const [taskText, setTaskText] = useState("");
   const inputHandler = (e) => setTaskText(e.target.value);    
   const createTask = () => {
-    if (taskText.length < 5) {
-      alert("Должно быть не менее 5 символов")
+    if (taskText.length <= 3) {
+      alert("Должно быть болше 3 символов")
     } else {
       setTasksList([
         ...tasksList,
@@ -18,11 +18,24 @@ function App() {
       setTaskText("");
     }  
   }
-  
+  const deleteTask = (Id) => {
+    setTasksList(tasksList.filter( el => el.id !== Id))
+  };
+  const toggleDone = (Id) => {
+    setTasksList(tasksList.map( item => {
+      if (item.id === Id) {
+        return {
+          ...item,
+          done: !item.done
+        }
+      } return item     
+    }))
+  }
+  console.log(tasksList);
   return (
     <div className="App">
       <section className="App__tasksList">
-        <TaskList tasksList={tasksList} />  
+        <TaskList tasksList={tasksList} deleteTask={deleteTask} toggleDone={toggleDone} />  
       </section>
       <section className="App__input">
         <InputTask inputHandler={inputHandler} taskText={taskText} createTask={createTask}/>
