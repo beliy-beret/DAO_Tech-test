@@ -12,12 +12,13 @@ function App() {
   const [taskCounter, setTaskCounter] = useState(0);
   const [complited, setComplited] = useState(null);
   const [uncomplited, setUncomplited] = useState(null);
+  const [filter, setFilter] = useState("all")
 
   //Обработчики сосотояния
   useEffect(() => setDoneCounter(tasksList.filter( item => item.done === true).length), [tasksList]);
   useEffect(() => setTaskCounter(tasksList.filter( item => item.done === false).length), [tasksList]);
-  const getComplited = () => setComplited(tasksList.filter(item => item.done === true));
-  const getUncomplited = () => setUncomplited(tasksList.filter(item => item.done === false));  
+  useEffect(() => setComplited(tasksList.filter(item => item.done === true)), [tasksList]);
+  useEffect(() => setUncomplited(tasksList.filter(item => item.done === false)), [tasksList]);  
   const inputHandler = (e) => setTaskText(e.target.value);    
   const createTask = () => {
     if (taskText.length <= 3) {
@@ -42,27 +43,32 @@ function App() {
         };        
       } return item     
     }));    
-  }  
+  };
+  const toggleFilter = (e) => setFilter(e.target.value); 
   
+  //Тело приложения  
   return (
     <div className="App">
       <section className="App__counters">
-        <div className="done-tasks">
+        <div className="complited">
           <Counter value={doneCounter} label={"Заданий выполнено"} />
         </div>
-        <div className="tasks">
+        <div className="uncomplited">
           <Counter value={taskCounter} label={"Заданий нужно выполнить"} />
         </div>
       </section>
       <section className="App__tasksList">        
-        <TaskList tasksList={tasksList} deleteTask={deleteTask} toggleDone={toggleDone} />  
+        <TaskList tasksList={tasksList} complited={complited} uncomplited={uncomplited} 
+        filter={filter} deleteTask={deleteTask} toggleDone={toggleDone} />  
       </section>
       <section className="App__input">
         <InputTask inputHandler={inputHandler} taskText={taskText} createTask={createTask}/>
       </section>
       <section className="App__filters">
-        <label>Выполненые задания<input type="checkbox" onChange={getComplited} /></label>
-        <label>Не выполненые задания<input type="checkbox" onChange={getUncomplited} /></label>
+        <p>Отобразить</p>
+        <label>Выполненые задания<input type="radio" name="tasks" value="complited" onChange={toggleFilter} /></label>
+        <label>Не выполненые задания<input type="radio" name="tasks" value="uncomplited" onChange={toggleFilter} /></label>
+        <label>Все задания<input type="radio" name="tasks" value="all" onChange={toggleFilter} defaultChecked /></label>
       </section>      
     </div>
   );
