@@ -1,22 +1,47 @@
-.App {
+.App {    
     width: 80%;
-    background-color: aqua;
-    margin: 0 auto;    
+    background-color: rgb(57, 133, 133);
+    margin: 0 auto;
+    &__counters{
+        border: 2px solid black;
+        display: flex;
+        padding: 2%;
+        input {
+            width: 10%;
+            margin-left: 2%;            
+        }
+    }
+    &__tasksList {
+        border: 2px solid black;
+        padding: 1%;
+    }    
     &__input {
-        border: solid 1px black;
-        padding: 5px 10px;
+        border: 2px solid black;                
+        padding: 1%;
+    }
+    &__filters {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        padding: 1%;
+        p {
+            margin: 0;
+        }        
     }
 }
-.tasks-list {    
-    border: solid 1px orange;
-    padding: 10px;    
+.tasks-list {
+    width: 95%;    
+    margin: 0 auto;    
     &__element {
-        border: 1px solid red;
-        border-radius: 5px;
+        background-color: #ffffff;
+        border: 2px solid #D4D4D4;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #A9A9A9;
+        padding: 1%;        
         p {
             width: 70%;
             display: inline-block;
-            padding: 10px;
+            margin: 0;                        
             &:hover {
                 cursor: pointer;
             }
@@ -25,14 +50,25 @@
 }
 .done {
     text-decoration: line-through;
+    background-color: rgb(180, 230, 180);
 }
 .button {
-    background-color: rgb(82, 71, 71); 
-    color: white; 
-    border: 4px solid rgb(82, 71, 71);
-    transition-duration: 0.5s;
+    text-decoration: none;        
+    line-height: 2em;
+    border-radius: 45px;
+    margin: 0px 10px;    
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
     &:hover {
-        background-color: white;
-        color: black;
+        background: #2EE59D;
+        box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+        color: white;        
     }
 }

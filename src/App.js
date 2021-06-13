@@ -65,10 +65,10 @@ function App() {
         <InputTask inputHandler={inputHandler} taskText={taskText} createTask={createTask}/>
       </section>
       <section className="App__filters">
-        <p>Отобразить</p>
-        <label>Выполненые задания<input type="radio" name="tasks" value="complited" onChange={toggleFilter} /></label>
-        <label>Не выполненые задания<input type="radio" name="tasks" value="uncomplited" onChange={toggleFilter} /></label>
-        <label>Все задания<input type="radio" name="tasks" value="all" onChange={toggleFilter} defaultChecked /></label>
+        <p>Фильтр:</p>
+        <label>выполненые задания<input type="radio" name="tasks" value="complited" onChange={toggleFilter} /></label>
+        <label>не выполненые задания<input type="radio" name="tasks" value="uncomplited" onChange={toggleFilter} /></label>
+        <label>все задания<input type="radio" name="tasks" value="all" onChange={toggleFilter} defaultChecked /></label>
       </section>      
     </div>
   );
