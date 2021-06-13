@@ -21,8 +21,10 @@ function App() {
   useEffect(() => setUncomplited(tasksList.filter(item => item.done === false)), [tasksList]);  
   const inputHandler = (e) => setTaskText(e.target.value);    
   const createTask = () => {
-    if (taskText.length <= 3) {
-      alert("Должно быть болше 3 символов")
+    if (taskText.length > 10) {
+      alert("Должно быть не более 10 символов !");
+    } else if (taskText.length < 1) {
+      alert ("Сперва нужно написать текст задачи !")
     } else {
       setTasksList([
         ...tasksList,

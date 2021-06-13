@@ -68,6 +68,7 @@
   background: white;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
+  cursor: pointer;
 }
 .button:hover {
   background: #2EE59D;
