@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/DAO_Tech-test/static/css/main.b7375649.chunk.css",
-    "main.js": "/DAO_Tech-test/static/js/main.dd509e41.chunk.js",
-    "main.js.map": "/DAO_Tech-test/static/js/main.dd509e41.chunk.js.map",
+    "main.js": "/DAO_Tech-test/static/js/main.8c72db74.chunk.js",
+    "main.js.map": "/DAO_Tech-test/static/js/main.8c72db74.chunk.js.map",
     "runtime-main.js": "/DAO_Tech-test/static/js/runtime-main.27884976.js",
     "runtime-main.js.map": "/DAO_Tech-test/static/js/runtime-main.27884976.js.map",
     "static/js/2.015a77a8.chunk.js": "/DAO_Tech-test/static/js/2.015a77a8.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.27884976.js",
     "static/js/2.015a77a8.chunk.js",
     "static/css/main.b7375649.chunk.css",
-    "static/js/main.dd509e41.chunk.js"
+    "static/js/main.8c72db74.chunk.js"
   ]
 }
