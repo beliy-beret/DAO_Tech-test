@@ -9,11 +9,10 @@ import { useDispatch, useSelector } from 'react-redux';
 const App = () => {
   const dispatch = useDispatch();
   const tasksList = useSelector( state => state.tasksList);
-  console.log(tasksList) 
+  const taskText = useSelector( state => state.taskText); 
   // Состояние
-
-  //const [tasksList, setTasksList] = useState([]);
-  const [taskText, setTaskText] = useState("");
+  
+  //const [taskText, setTaskText] = useState("");
   const [complitedCounter, setComplitedCounter] = useState(0);
   const [uncomplitedCounter, setUncomplitedCounter] = useState(0);
   const [complited, setComplited] = useState(null);
@@ -25,7 +24,7 @@ const App = () => {
   useEffect(() => setUncomplitedCounter(tasksList.filter( item => item.done === false).length), [tasksList]);
   useEffect(() => setComplited(tasksList.filter(item => item.done === true)), [tasksList]);
   useEffect(() => setUncomplited(tasksList.filter(item => item.done === false)), [tasksList]);  
-  const inputHandler = (e) => setTaskText(e.target.value);    
+  const inputHandler = (e) => dispatch({ type: "SET_TASKTEXT", payload: e.target.value});    
   const createTask = () => {
     if (taskText.length > 10) {
       alert("Должно быть не более 10 символов !");
@@ -33,7 +32,7 @@ const App = () => {
       alert ("Сперва нужно написать текст задачи !")
     } else {      
       dispatch({type: "ADD_TASK", payload: taskText});
-      setTaskText('');
+      dispatch({type: "SET_TASKTEXT", payload: ""});
     }  
   }
   const deleteTask = (Id) => dispatch({type: "DEL_TASK", payload: Id});

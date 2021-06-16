@@ -1,9 +1,11 @@
 const ADD_TASK = "ADD_TASK";
 const DEL_TASK = "DEL_TASK";
 const TOGGLE_DONE = "TOGGLE_DONE";
+const SET_TASKTEXT = "SET_TASKTEXT";
 
 const defaultState = {
     tasksList: [],
+    taskText: "",
 }
 
 const reducer = (state = defaultState, action) => {
@@ -32,6 +34,11 @@ const reducer = (state = defaultState, action) => {
                         }
                     } return task
                 })
+            }
+        case SET_TASKTEXT:
+            return {
+                ...state,
+                taskText: action.payload
             }
         default:
             return state
