@@ -2,10 +2,14 @@ const ADD_TASK = "ADD_TASK";
 const DEL_TASK = "DEL_TASK";
 const TOGGLE_DONE = "TOGGLE_DONE";
 const SET_TASKTEXT = "SET_TASKTEXT";
-
+const SET_FILTER_VALUE = "SET_FILTER_VALUE";
+const SET_COMPLITED_COUNTER = "SET_COMPLITED_COUNTER";  
+ 
 const defaultState = {
     tasksList: [],
     taskText: "",
+    filter: "all",
+    complitedCounter: 0,
 }
 
 const reducer = (state = defaultState, action) => {
@@ -34,12 +38,22 @@ const reducer = (state = defaultState, action) => {
                         }
                     } return task
                 })
-            }
+            };
         case SET_TASKTEXT:
             return {
                 ...state,
                 taskText: action.payload
-            }
+            };
+        case SET_FILTER_VALUE:
+            return {
+                ...state,
+                filter: action.payload
+            };
+        case SET_COMPLITED_COUNTER:
+            return {
+                ...state,
+                complitedCounter: state.tasksList.filter( item => item.done === true).length
+            };
         default:
             return state
     };

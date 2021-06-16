@@ -8,19 +8,23 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
   const dispatch = useDispatch();
+   
+  // Состояние  
   const tasksList = useSelector( state => state.tasksList);
-  const taskText = useSelector( state => state.taskText); 
-  // Состояние
+  const taskText = useSelector( state => state.taskText);
+  const filter = useSelector( state => state.filter);
+  const complitedCounter = useSelector( state => state.complitedCounter);
+
+
   
-  //const [taskText, setTaskText] = useState("");
-  const [complitedCounter, setComplitedCounter] = useState(0);
   const [uncomplitedCounter, setUncomplitedCounter] = useState(0);
   const [complited, setComplited] = useState(null);
   const [uncomplited, setUncomplited] = useState(null);
-  const [filter, setFilter] = useState("all")
+  
 
   //Обработчики сосотояния
-  useEffect(() => setComplitedCounter(tasksList.filter( item => item.done === true).length), [tasksList]);
+  const setComplitedCounter = () => dispatch({type: "SET_COMPLITED_COUNTER"}); 
+  useEffect(() => setComplitedCounter, [tasksList]);
   useEffect(() => setUncomplitedCounter(tasksList.filter( item => item.done === false).length), [tasksList]);
   useEffect(() => setComplited(tasksList.filter(item => item.done === true)), [tasksList]);
   useEffect(() => setUncomplited(tasksList.filter(item => item.done === false)), [tasksList]);  
@@ -38,7 +42,7 @@ const App = () => {
   const deleteTask = (Id) => dispatch({type: "DEL_TASK", payload: Id});
   const toggleDone = (Id) => dispatch({type: "TOGGLE_DONE", payload: Id});        
   
-  const toggleFilter = (e) => setFilter(e.target.value); 
+  const toggleFilter = (e) => dispatch({type: "SET_FILTER_VALUE", payload: e.target.value}); 
   
   //Тело приложения  
   return (
