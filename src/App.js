@@ -4,10 +4,15 @@ import InputTask from './components/InputTask';
 import TaskList from './components/TaskList';
 import Counter from './components/Counter';
 import FilterComponent from './components/FilterComponent';
+import { useDispatch, useSelector } from 'react-redux';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  const tasksList = useSelector( state => state.tasksList);
+  console.log(tasksList) 
   // Состояние
-  const [tasksList, setTasksList] = useState([]);
+
+  //const [tasksList, setTasksList] = useState([]);
   const [taskText, setTaskText] = useState("");
   const [complitedCounter, setComplitedCounter] = useState(0);
   const [uncomplitedCounter, setUncomplitedCounter] = useState(0);
@@ -26,27 +31,14 @@ function App() {
       alert("Должно быть не более 10 символов !");
     } else if (taskText.length < 1) {
       alert ("Сперва нужно написать текст задачи !")
-    } else {
-      setTasksList([
-        ...tasksList,
-        {id: Math.floor(Math.random() * 1000), text: taskText, done: false}
-      ]);
-      setTaskText("");
+    } else {      
+      dispatch({type: "ADD_TASK", payload: taskText});
+      setTaskText('');
     }  
   }
-  const deleteTask = (Id) => {
-    setTasksList(tasksList.filter( el => el.id !== Id))
-  };
-  const toggleDone = (Id) => {
-    setTasksList(tasksList.map( item => {
-      if (item.id === Id) {        
-        return {          
-          ...item,
-          done: !item.done
-        };        
-      } return item     
-    }));    
-  };
+  const deleteTask = (Id) => dispatch({type: "DEL_TASK", payload: Id});
+  const toggleDone = (Id) => dispatch({type: "TOGGLE_DONE", payload: Id});        
+  
   const toggleFilter = (e) => setFilter(e.target.value); 
   
   //Тело приложения  
@@ -62,16 +54,16 @@ function App() {
       </section>
       <section className="App__tasksList">        
         <TaskList tasksList={tasksList} complited={complited} uncomplited={uncomplited} 
-        filter={filter} deleteTask={deleteTask} toggleDone={toggleDone} />  
+        filter={filter} deleteTask={deleteTask} toggleDone={toggleDone} />   
       </section>
       <section className="App__input">
         <InputTask inputHandler={inputHandler} taskText={taskText} createTask={createTask}/>
       </section>
       <section className="App__filters">
         <p>Фильтр:</p>
-        <FilterComponent label="выполненые задания" name="tasks" value="complited" onChange={toggleFilter} />
-        <FilterComponent label="не выполненые задания" name="tasks" value="uncomplited" onChange={toggleFilter} />
-        <FilterComponent label="все задания" name="tasks" value="all" onChange={toggleFilter} defaultChecked="true" />        
+        <FilterComponent label="выполненые задания" name="tasks" value="complited" onchange={toggleFilter} />
+        <FilterComponent label="не выполненые задания" name="tasks" value="uncomplited" onchange={toggleFilter} />
+        <FilterComponent label="все задания" name="tasks" value="all" onchange={toggleFilter} defaultChecked="true" />        
       </section>      
     </div>
   );
