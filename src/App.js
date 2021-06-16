@@ -3,20 +3,21 @@ import '../src/css/App.css';
 import InputTask from './components/InputTask';
 import TaskList from './components/TaskList';
 import Counter from './components/Counter';
+import FilterComponent from './components/FilterComponent';
 
 function App() {
   // Состояние
   const [tasksList, setTasksList] = useState([]);
   const [taskText, setTaskText] = useState("");
-  const [doneCounter, setDoneCounter] = useState(0);
-  const [taskCounter, setTaskCounter] = useState(0);
+  const [complitedCounter, setComplitedCounter] = useState(0);
+  const [uncomplitedCounter, setUncomplitedCounter] = useState(0);
   const [complited, setComplited] = useState(null);
   const [uncomplited, setUncomplited] = useState(null);
   const [filter, setFilter] = useState("all")
 
   //Обработчики сосотояния
-  useEffect(() => setDoneCounter(tasksList.filter( item => item.done === true).length), [tasksList]);
-  useEffect(() => setTaskCounter(tasksList.filter( item => item.done === false).length), [tasksList]);
+  useEffect(() => setComplitedCounter(tasksList.filter( item => item.done === true).length), [tasksList]);
+  useEffect(() => setUncomplitedCounter(tasksList.filter( item => item.done === false).length), [tasksList]);
   useEffect(() => setComplited(tasksList.filter(item => item.done === true)), [tasksList]);
   useEffect(() => setUncomplited(tasksList.filter(item => item.done === false)), [tasksList]);  
   const inputHandler = (e) => setTaskText(e.target.value);    
@@ -53,10 +54,10 @@ function App() {
     <div className="App">
       <section className="App__counters">
         <div className="complited">
-          <Counter value={doneCounter} label={"Заданий выполнено"} />
+          <Counter value={complitedCounter} label={"Заданий выполнено"} />
         </div>
         <div className="uncomplited">
-          <Counter value={taskCounter} label={"Заданий нужно выполнить"} />
+          <Counter value={uncomplitedCounter} label={"Заданий нужно выполнить"} />
         </div>
       </section>
       <section className="App__tasksList">        
@@ -68,9 +69,9 @@ function App() {
       </section>
       <section className="App__filters">
         <p>Фильтр:</p>
-        <label>выполненые задания<input type="radio" name="tasks" value="complited" onChange={toggleFilter} /></label>
-        <label>не выполненые задания<input type="radio" name="tasks" value="uncomplited" onChange={toggleFilter} /></label>
-        <label>все задания<input type="radio" name="tasks" value="all" onChange={toggleFilter} defaultChecked /></label>
+        <FilterComponent label="выполненые задания" name="tasks" value="complited" onChange={toggleFilter} />
+        <FilterComponent label="не выполненые задания" name="tasks" value="uncomplited" onChange={toggleFilter} />
+        <FilterComponent label="все задания" name="tasks" value="all" onChange={toggleFilter} defaultChecked="true" />        
       </section>      
     </div>
   );
