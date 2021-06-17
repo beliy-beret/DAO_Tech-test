@@ -2,6 +2,10 @@
     width: 80%;
     background-color: rgb(57, 133, 133);
     margin: 0 auto;
+    input {
+        padding: 1%;            
+        border-radius: 5px;
+    }
     &__counters{
         border: 2px solid black;
         display: flex;
@@ -18,6 +22,14 @@
     &__input {
         border: 2px solid black;                
         padding: 1%;
+        input {            
+            cursor: pointer;
+            &:focus {
+                border: 0;
+                box-shadow:5px 5px 10px 4px black;
+            }
+            
+        }
     }
     &__filters {
         display: flex;
