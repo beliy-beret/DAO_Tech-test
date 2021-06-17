@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DAO_Tech-test/static/css/main.e9ac2d74.chunk.css",
+    "main.css": "/DAO_Tech-test/static/css/main.29c1cd5d.chunk.css",
     "main.js": "/DAO_Tech-test/static/js/main.6258e90a.chunk.js",
     "main.js.map": "/DAO_Tech-test/static/js/main.6258e90a.chunk.js.map",
     "runtime-main.js": "/DAO_Tech-test/static/js/runtime-main.7e92dddb.js",
@@ -10,13 +10,13 @@
     "static/js/3.442b297b.chunk.js": "/DAO_Tech-test/static/js/3.442b297b.chunk.js",
     "static/js/3.442b297b.chunk.js.map": "/DAO_Tech-test/static/js/3.442b297b.chunk.js.map",
     "index.html": "/DAO_Tech-test/index.html",
-    "static/css/main.e9ac2d74.chunk.css.map": "/DAO_Tech-test/static/css/main.e9ac2d74.chunk.css.map",
+    "static/css/main.29c1cd5d.chunk.css.map": "/DAO_Tech-test/static/css/main.29c1cd5d.chunk.css.map",
     "static/js/2.a6bf762a.chunk.js.LICENSE.txt": "/DAO_Tech-test/static/js/2.a6bf762a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7e92dddb.js",
     "static/js/2.a6bf762a.chunk.js",
-    "static/css/main.e9ac2d74.chunk.css",
+    "static/css/main.29c1cd5d.chunk.css",
     "static/js/main.6258e90a.chunk.js"
   ]
 }
