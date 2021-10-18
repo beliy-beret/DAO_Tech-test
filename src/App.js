@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import '../src/css/App.css';
+import '../src/scss/App.scss';
 import InputTask from './components/InputTask';
 import TaskList from './components/TaskList';
 import Counter from './components/Counter';
