@@ -37,13 +37,13 @@ const App = () => {
   const deleteTask = (Id) => dispatch({type: "DEL_TASK", payload: Id});
   const toggleDone = (Id) => dispatch({type: "TOGGLE_DONE", payload: Id});
   const toggleFilter = (e) => dispatch({type: "SET_FILTER_VALUE", payload: e.target.value}); 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   useEffect(() => setComplitedCounter, [tasksList]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   useEffect(() => setUncomplitedCounter, [tasksList]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   useEffect(() => getComplited, [tasksList]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   useEffect(() => getUncomplited, [tasksList]);
 
   //Тело приложения  
