@@ -20,7 +20,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "semi": ["error", "always"],
+        "semi": ["error", "never"],
         "quotes": ["error", "single"],
         "linebreak-style": ["error", "windows"],
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],

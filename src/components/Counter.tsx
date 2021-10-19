@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 type PropsType = {
   value: number
@@ -10,5 +10,5 @@ const Counter: React.FC<PropsType> = ({ value, label }) => (
     <label htmlFor="counter">{label}</label>
     <input id="counter" value={value} type="number" readOnly />
   </div>
-);
-export default Counter;
+)
+export default Counter
