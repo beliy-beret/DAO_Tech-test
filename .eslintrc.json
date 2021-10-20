@@ -17,14 +17,17 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint"        
     ],
     "rules": {
         "semi": ["error", "never"],
         "quotes": ["error", "single"],
         "linebreak-style": ["error", "windows"],
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
-        "no-use-before-define": 0,
-        "no-alert": 0
+        "no-use-before-define": "off",
+        "no-alert": "off",
+        "no-unused-vars": "off",
+        "import/extensions": "off",
+        "import/no-unresolved": "off"
     }
 }
