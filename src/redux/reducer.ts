@@ -1,6 +1,22 @@
+import { TaskType } from '../AppTypes'
 import * as types from './actionsTypes'
 
-const defaultState = {
+type ActionType = {
+  type: string
+  payload: any
+}
+
+type DefaultStateType = {
+  tasksList: TaskType[]
+  taskText: string
+  complited: TaskType[]
+  uncomplited: TaskType[]
+  filter: string
+  complitedCounter: number
+  uncomplitedCounter: number
+}
+
+const defaultState: DefaultStateType = {
   tasksList: [],
   taskText: '',
   complited: [],
@@ -10,7 +26,7 @@ const defaultState = {
   uncomplitedCounter: 0,
 }
 
-const reducer = (state = defaultState, action) => {
+const reducer = (state = defaultState, action: ActionType) => {
   switch (action.type) {
     case types.ADD_TASK:
       return {

@@ -7,8 +7,8 @@ type PropsType = {
   complited: TaskType[]
   uncomplited: TaskType[]
   filter: string
-  deleteTask: () => void
-  toggleDone: () => void
+  deleteTask: (ID: number) => void
+  toggleDone: (ID: number) => void
 }
 
 const TaskList: React.FC<PropsType> = ({

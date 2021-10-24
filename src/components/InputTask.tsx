@@ -1,7 +1,7 @@
 import React from 'react'
 
 type PropsType = {
-  inputHandler: () => void
+  inputHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
   taskText: string
   createTask: () => void
 }

@@ -4,7 +4,7 @@ type PropsType = {
   label: string
   name: string
   value: any
-  onchange: () => void
+  onchange: (e: React.ChangeEvent<HTMLInputElement>) => void
   defaultChecked: boolean
 }
 
